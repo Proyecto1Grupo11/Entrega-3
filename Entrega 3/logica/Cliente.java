@@ -49,7 +49,7 @@ public class Cliente extends Usuario {
 	 * <!--METODOS QUE USA EL CLIENTE-->
 	 */
 	
-	private String iniciarReserva(String codigoSede, String codigoReserva, String tipoDeCarro,
+	public String iniciarReserva(String codigoSede, String codigoReserva, String tipoDeCarro,
 			String sedeRecogida, String sedeEntrega, String nuevaSedeEntrega,String fechaHoraRecogida, String fechaHoraEntrega,
 			String placaVehiculo, String usernameCliente, String rutaImagenConductorAdiciones, int calculoPrecioFinal, int cantidadConductoresAdicionales,
 			int duracionPorDia, String textoFactura) {

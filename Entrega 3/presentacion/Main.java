@@ -376,66 +376,83 @@ public class Main {
                     empleado.mandarMantenimiento(placaVehiculo);
                 } else if (opcion == 2) {
                     System.out.println("Crear un cliente:");
+                    System.out.print("Ingrese el nombre de usuario: ");
+                    String username = reader.readLine();
+
+                    System.out.print("Ingrese la contraseña: ");
+                    String password = reader.readLine();
+
+                    System.out.print("Ingrese el nombre del cliente: ");
+                    String nombreCliente = reader.readLine();
+
+                    System.out.print("Ingrese el email: ");
+                    String email = reader.readLine();
+
+                    System.out.print("Ingrese el teléfono: ");
+                    String telefono = reader.readLine();
+
+                    System.out.print("Ingrese la fecha de nacimiento: ");
+                    String fechaNacimiento = reader.readLine();
+
+                    System.out.print("Ingrese la nacionalidad: ");
+                    String nacionalidad = reader.readLine();
+
+                    System.out.print("Ingrese la imagen de la cédula: ");
+                    String imagenCedula = reader.readLine();
+
+                    System.out.print("Ingrese la imagen de la licencia: ");
+                    String imagenLicencia = reader.readLine();
+
+                  
+                  
+
+                    System.out.print("Ingrese la fecha de vencimiento de la tarjeta: ");
+                    String fechaVencimiento = reader.readLine();
                     
-                    String username= reader.readLine();
-                    String password= reader.readLine()
-                    Roles cargo String nombreCliente, String email, String telefono, String fechaNacimiento, String nacionalidad, String imagenCedula,String imagenLicencia, String metodoDePago, String numeroTarjeta, String fechaVencimiento
                     
-                    
-                    empresa.crearCliente();
+                    empresa.crearCliente(username,password,Roles.CLIENTE,nombreCliente,email,telefono,fechaNacimiento,nacionalidad,imagenCedula,imagenLicencia,"","",fechaVencimiento);
                     
                 } else if (opcion == 3) {
                     System.out.println("Iniciar una reserva:");
                    
-                        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-                        System.out.print("Ingrese el código de reserva: ");
-                        String codigoReserva = reader.readLine();
+                    System.out.print("Ingrese el código de sede: ");
+                    String codigoSede = reader.readLine();
 
-                        System.out.print("Ingrese el tipo de carro: ");
-                        String tipoCarro = reader.readLine();
+                    System.out.print("Ingrese el tipo de carro: ");
+                    String tipoDeCarro = reader.readLine();
 
-                        System.out.print("Ingrese la sede de recogida: ");
-                        String sedeRecogida = reader.readLine();
+                    System.out.print("Ingrese la sede de recogida: ");
+                    String sedeRecogida = reader.readLine();
 
-                        System.out.print("Ingrese la sede de entrega: ");
-                        String sedeEntrega = reader.readLine();
+                    System.out.print("Ingrese la sede de entrega: ");
+                    String sedeEntrega = reader.readLine();
 
-                        System.out.print("Ingrese la nueva sede de entrega: ");
-                        String nuevaSedeEntrega = reader.readLine();
+                    
 
-                        System.out.print("Ingrese la fecha y hora de recogida: ");
-                        String fechaHoraRecogida = reader.readLine();
+                    System.out.print("Ingrese la fecha y hora de recogida en el formato Año/Mes/Día/Hora/Min/Seg: ");
+                    String fechaHoraRecogida = reader.readLine();
 
-                        System.out.print("Ingrese la fecha y hora de entrega: ");
-                        String fechaHoraEntrega = reader.readLine();
+                    System.out.print("Ingrese la fecha y hora de entrega en el formato Año/Mes/Día/Hora/Min/Seg: ");
+                    String fechaHoraEntrega = reader.readLine();
 
-                        System.out.print("Ingrese la placa del vehículo: ");
-                        String placaVehiculo = reader.readLine();
+                    System.out.print("Ingrese la placa del vehículo: ");
+                    String placaVehiculo = reader.readLine();
 
-                        System.out.print("Ingrese el nombre de usuario del cliente: ");
-                        String usernameCliente = reader.readLine();
+                    System.out.print("Ingrese el nombre de usuario del cliente: ");
+                    String usernameCliente = reader.readLine();
 
-                        System.out.print("Ingrese la ruta de la imagen del conductor adicional: ");
-                        String rutaImagenConductorAdicional = reader.readLine();
+                  
 
-                        System.out.print("Ingrese el cálculo del precio final: ");
-                        String calculoPrecioFinal = reader.readLine();
-
-                        System.out.print("Ingrese la cantidad de conductores adicionales: ");
-                        String cantidadConductoresAdicionales = reader.readLine();
-
-                        System.out.print("Ingrese la duración por día: ");
-                        String duracionPorDia = reader.readLine();
-
-                        System.out.print("Ingrese el texto de la factura: ");
-                        String textoFactura = reader.readLine();
+                    
 
                   
                     
                 
                     
                     
-                    empleado.iniciarReserva(codigoReserva, tipoCarro, sedeRecogida, sedeEntrega, nuevaSedeEntrega, fechaHoraRecogida, fechaHoraEntrega, placaVehiculo, usernameCliente, rutaImagenConductorAdicional, calculoPrecioFinal, cantidadConductoresAdicionales, duracionPorDia, textoFactura);
+                    empleado.iniciarReserva(codigoSede,"", tipoDeCarro, sedeRecogida, sedeEntrega,"",
+    						fechaHoraRecogida, fechaHoraEntrega, placaVehiculo, usernameCliente,
+    						0,0,0,"");
                 } else if (opcion == 4) {
                     System.out.println("Cerrar y guardar reserva:");
                     empleado.cerrarGuardarReserva();
@@ -484,7 +501,42 @@ public class Main {
                 if (opcion == 1) {
                     System.out.println("Iniciar Reserva:");
                     System.out.println("Iniciar una reserva:");
+                    System.out.println("Iniciar una reserva:");
+                    
+                    System.out.print("Ingrese el código de sede: ");
+                    String codigoSede = reader.readLine();
 
+                    System.out.print("Ingrese el tipo de carro: ");
+                    String tipoDeCarro = reader.readLine();
+
+                    System.out.print("Ingrese la sede de recogida: ");
+                    String sedeRecogida = reader.readLine();
+
+                    System.out.print("Ingrese la sede de entrega: ");
+                    String sedeEntrega = reader.readLine();
+
+                   
+
+                    System.out.print("Ingrese la fecha y hora de recogida en el formato Año/Mes/Día/Hora/Min/Seg: ");
+                    String fechaHoraRecogida = reader.readLine();
+
+                    System.out.print("Ingrese la fecha y hora de entrega en el formato Año/Mes/Día/Hora/Min/Seg: ");
+                    String fechaHoraEntrega = reader.readLine();
+
+                    System.out.print("Ingrese la placa del vehículo: ");
+                    String placaVehiculo = reader.readLine();
+
+                    System.out.print("Ingrese el nombre de usuario del cliente: ");
+                    String usernameCliente = reader.readLine();
+
+                  
+
+                    
+
+                  
+                    cliente.iniciarReserva(codigoSede,"", tipoDeCarro, sedeRecogida, sedeEntrega,"",
+    						fechaHoraRecogida, fechaHoraEntrega, placaVehiculo, usernameCliente,
+    						"", 0,0,0,"");
                 } else if (opcion == 2) {
                     System.out.println("Cerrar y Guardar Reserva:");
                     cliente.getCerrarSesion();
