@@ -42,8 +42,9 @@ public class EmpresaAlquiler implements Serializable
 		for(String linea : lineas) {
 			String []datos = linea.split(";");
 			ArrayList<Vehiculo> listaVehiculos = new ArrayList<Vehiculo>();
-			HashMap<String,Reserva> listaReservas= new HashMap<String,Reserva>();
-			Sede sede = new Sede(datos[0], datos[1], datos[2],listaVehiculos,listaReservas); 
+			HashMap<String,Reserva> mapaReserva= new HashMap<String,Reserva>();
+			
+			Sede sede = new Sede(datos[0], datos[1], datos[2],listaVehiculos,mapaReserva,this); 
 			listaSedes.add(sede);
 		}
 		
@@ -65,11 +66,7 @@ public class EmpresaAlquiler implements Serializable
 			Usuario user = new Empleado((datos[0]), datos[1], (datos[2]), Roles.EMPLEADO, sedeEspecifica);
 			Empleado userEmpleado = new Empleado((datos[0]), datos[1], (datos[2]), Roles.EMPLEADO, sedeEspecifica);//SE LLAMA AL CONSTRUCTOR DE EMPLEADO 		
 			this.mapaUsuarios.put(datos[0], user);
-			for(Sede sedes : this.listaSedes) {
-				if (sedes.codigoSede==datos[2]) {
-					sedes.mapaEmpleados.put(datos[0], userEmpleado);
-				}
-			}
+			
 				//SE GUARDA EN EL MAPA EL USERNAME Y EL USUARIO 		
 		}//ACA HAY QUE GUARDARLL EN LA SEDE QUE PERTENECE.
 

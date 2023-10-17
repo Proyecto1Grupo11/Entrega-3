@@ -71,7 +71,7 @@ public class Empleado extends Usuario {
 			String Mensaje =reserva.iniciarReserva();
 			
 			for(Sede sedes : empresa.listaSedes) {
-				if (sedes.codigoSede==codigoSede) {
+				if (sedes.codigoSede.equals(codigoSede)) {
 					sedes.mapaReservas.put(reserva.codigoReserva,reserva);
 				}
 					
@@ -100,7 +100,7 @@ public class Empleado extends Usuario {
 	public void addConductorAdicional(String rutaImagen, String codigoSede,String codigoReserva) {
 		// TODO IGUAL ACA LO DE LA SEDE	
 		for (Sede sedes : empresa.listaSedes) {
-			if (sedes.codigoSede==codigoSede) {
+			if (sedes.codigoSede.equals(codigoSede)) {
 				sedes.mapaReservas.get(codigoReserva)
 			.listaConductoresAdicionales.add(rutaImagen);
 			}

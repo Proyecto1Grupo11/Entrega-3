@@ -29,16 +29,8 @@ public class AdminGeneral extends Usuario
 	 * <!-- METODOS DEL ADMIN -->
 	 */
 	
-	public void addEmpleado(String username, String password, Roles cargo) {
-		sede.addEmpleado(username, password, cargo);
-	}
-    public void deleteEmpleado(String username) {
-        sede.deleteEmpleado(username);
-		
-		
-		// TODO implement me
-		
-	}
+    	
+    
 
 	public void crearAdminSede(String username, String password, String codigoSede, Roles cargo) {
 		// TODO implement me
@@ -94,11 +86,12 @@ public class AdminGeneral extends Usuario
 	public void addSede(String codigoSede, String ubicacion, String horarioAtencion) {
 		//Corregir 
 		HashMap<String,Reserva> mapaReserva = new HashMap<String, Reserva> ();
+		HashMap<String, Empleado> mapaEmpledo = new HashMap<String, Empleado> ();
 		ArrayList<Vehiculo> listaVehiculos = new ArrayList<Vehiculo>();
 		//CREAR EL ADMIN SEDE, osea tienen que juntarlo con el metodo de add admin sede. no existe
 		//el uno sin el otro. 
 
-       Sede sede = new Sede(codigoSede, ubicacion, horarioAtencion, listaVehiculos, mapaReserva);
+       Sede sede = new Sede(codigoSede, ubicacion, horarioAtencion, listaVehiculos, mapaReserva,empresa);
        empresa.listaSedes.add(sede);
 		
 	}

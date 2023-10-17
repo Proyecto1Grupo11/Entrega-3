@@ -33,11 +33,15 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int op = 0;
 		
+		boolean esEmpleado = esFuncionario();
+		
+		if (!esEmpleado) { // si es un cliente, le puede dar la opcion crear cliente
+			
 		do {
 			System.out.println("Digite:\n" + "" + 
 								"0. Salir\n" + 
 								"1. Iniciar Sesion" + 
-								"2. Crear Usuario"); 																										
+								"2. Crear Usuario cliente"); 																										
 			
 			try {
 				op = Integer.parseInt(reader.readLine());
@@ -57,8 +61,58 @@ public class Main {
 	        PersistenciaEmpresaAlquiler.guardarEmpresaAlquiler(this.empresa);
 	        reader.close();
 		} catch (IOException e) {
-			e.printStackTrace();
+			e.printStackTrace(); }
 		}
+		
+		else {
+			do {
+				System.out.println("Digite:\n" + "" + 
+									"0. Salir\n" + 
+									"1. Iniciar Sesion como funcionario" );
+				
+				try {
+					op = Integer.parseInt(reader.readLine());
+					
+					if (op == 1) {
+						iniciarSesion(this.empresa, reader);
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			} while (op != 0);
+			
+			try {
+				// Al cerrar el programa, se guardan los datos de la empresa en un archivo binario.
+		        PersistenciaEmpresaAlquiler.guardarEmpresaAlquiler(this.empresa);
+		        reader.close();
+			} catch (IOException e) {
+				e.printStackTrace(); }
+			}
+		}
+
+	private boolean esFuncionario() {
+		// TODO Auto-generated method stub
+		
+		System.out.println("Digite:\n" + "" + 
+				"1. Funcionario empresa\n" + 
+				"2. Cliente");
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int op = 0;
+		boolean retorno = true;
+		
+		try {
+		op = Integer.parseInt(reader.readLine());
+		
+		if (op == 1) {
+			retorno = true;
+		} else if (op == 2) {
+			retorno = false;
+		}
+		} catch (IOException e) {
+		e.printStackTrace();
+		}
+		return retorno;
 	}
 
 	private void iniciarSesion(EmpresaAlquiler empresa, BufferedReader reader) {
@@ -377,8 +431,6 @@ public class Main {
                     System.out.println("Iniciar Reserva:");
                     System.out.println("Iniciar una reserva:");
 
-                    // Resto del código similar al anterior
-
                 } else if (opcion == 2) {
                     System.out.println("Cerrar y Guardar Reserva:");
                     cliente.getCerrarSesion();
@@ -400,3 +452,4 @@ public class Main {
         new Main();
     }
 }
+

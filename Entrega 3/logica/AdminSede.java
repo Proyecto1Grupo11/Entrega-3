@@ -8,7 +8,7 @@ package logica;
 public class AdminSede extends Usuario {
 	
 	private static final long serialVersionUID = 2L;
-	public String codigoSede;
+	public String codigoSedeAdmin;
 	
 	public Sede sede;
 	public EmpresaAlquiler empresa;
@@ -18,9 +18,9 @@ public class AdminSede extends Usuario {
 	 */
 
 	
-	public AdminSede(String username, String password, Roles rol, String codigoSede, Sede sede,EmpresaAlquiler empresa) {
+	public AdminSede(String username, String password, Roles rol, String codigoSedeAdmin, Sede sede,EmpresaAlquiler empresa) {
 		super(username, password, rol);
-		this.codigoSede = codigoSede;
+		this.codigoSedeAdmin = codigoSedeAdmin;
 		this.sede = sede;
 		this.empresa = empresa;
 	}
@@ -40,18 +40,20 @@ public class AdminSede extends Usuario {
 	
 	public void addEmpleado(String username, String password, Roles cargo) {
 		for (Sede sedes:empresa.listaSedes ) {
-			if(sedes.codigoSede==codigoSede) {
-		Usuario u = new Empleado(username, password, codigoSede, Roles.EMPLEADO, sedes);
+			if(sedes.codigoSede.equals(codigoSedeAdmin)) {
+				
+		
+		Usuario u = new Empleado(username, password, codigoSedeAdmin, Roles.EMPLEADO, sedes);
 		this.empresa.mapaUsuarios.put(username,u);
-		sedes.addEmpleado(username, password, cargo);
+		
 		}
 	}
 }
 	public void deleteEmpleado(String username) {
     	for (Sede sedes:empresa.listaSedes ) {
-			if(sedes.codigoSede==codigoSede) {
+			if(sedes.codigoSede.equals(username)) {
 		empresa.mapaUsuarios.remove(username);		
-		sedes.deleteEmpleado(username);
+		
 		}
     	}
     }
@@ -62,11 +64,11 @@ public class AdminSede extends Usuario {
     	 */
 
 	public String getCodigoSede() {
-		return codigoSede;
+		return codigoSedeAdmin;
 	}
 
 	public void setCodigoSede(String codigoSede) {
-		this.codigoSede = codigoSede;
+		this.codigoSedeAdmin = codigoSede;
 	}
 
 	public Sede getSede() {

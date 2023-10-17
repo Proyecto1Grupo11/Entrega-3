@@ -28,9 +28,9 @@ public class Sede implements Serializable
 	public String horarioAtencion;
 	
 	public ArrayList<Vehiculo> listaVehiculos;
-	public HashMap<String,Empleado> mapaEmpleados;
-	public HashMap<String,Reserva> mapaReservas;
 	
+	public HashMap<String,Reserva> mapaReservas;
+	public EmpresaAlquiler empresa;
 	
 	/**
 	 * <!-- CONSTRUCTOR  -->
@@ -38,6 +38,16 @@ public class Sede implements Serializable
 	 */
 	
 	
+	public Sede(String codigoSede, String ubicacion, String horarioAtencion, ArrayList<Vehiculo> listaVehiculos,
+			HashMap<String, Reserva> mapaReservas, EmpresaAlquiler empresa) {
+		super();
+		this.codigoSede = codigoSede;
+		this.ubicacion = ubicacion;
+		this.horarioAtencion = horarioAtencion;
+		this.listaVehiculos = listaVehiculos;
+		this.mapaReservas = mapaReservas;
+		this.empresa = empresa;
+	}
 	/**
 	 * <!-- FUNCIONES DEL ADMIN  -->
 	 */
@@ -45,25 +55,11 @@ public class Sede implements Serializable
 	
 	
 	
+	
 
-	public Sede(String codigoSede, String ubicacion, String horarioAtencion, ArrayList<Vehiculo> listaVehiculos,
-			HashMap<String, Reserva> mapaReservas) {
-		super();
-		this.codigoSede = codigoSede;
-		this.ubicacion = ubicacion;
-		this.horarioAtencion = horarioAtencion;
-		this.listaVehiculos = listaVehiculos;
-		this.mapaReservas = mapaReservas;
-	}
+	
 
-	public void addEmpleado(String username, String password, Roles cargo) {
-        Empleado nuevoEmpleado = new Empleado(username, password,codigoSede, cargo, this);
-        mapaEmpleados.put(username,nuevoEmpleado);
-    }
-
-    public void deleteEmpleado(String username) {
-        mapaEmpleados.remove(username);
-        }
+	
 
     public void addVehiculo(String categoria, String placa, String marca, String codigoReservaActual, String modelo, String color, String tipoTransmision, Estados estados, String codigoSede) {
         Vehiculo nuevoVehiculo = new Vehiculo(categoria, placa, marca, codigoReservaActual, color, tipoTransmision, estados,modelo,codigoSede);
